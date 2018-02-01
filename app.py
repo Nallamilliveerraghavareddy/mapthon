@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
+# Copyright 2017 Prasanna Venkadesh
+#
+# This file is part of osm-leaderboard
+#
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation; either version 2 of the License, or
@@ -60,7 +64,7 @@ def handle_register():
         else:
             message = "OSM Display Name and Email are required."
 
-        return render_template('success.html', message = message)
+        return render_template('success.php', message = message)
 
 
 @app.route("/leaderboard", methods=["GET"])
@@ -74,4 +78,4 @@ def handle_leaderboard():
 
 
 if __name__ == "__main__":
-    app.run(debug=False, host="172.17.0.2", port=8780)
+    app.run(debug=False, host="172.17.0.2", port=8787)
