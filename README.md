@@ -1,7 +1,7 @@
 osm-leaderboard
 =====
 
-Deploy this web application written in python-flask to organize OpenStreetMap Mapathon. This application was primarily written for [swecha] to organize one such [OSM mapathon](http://osm-leaderboard.fsftn.org).
+Deploy this web application written in python-flask to organize OpenStreetMap Mapathon. This application was primarily written for [FSFTN](https://fsftn.org) to organize one such [OSM mapathon](http://osm-leaderboard.fsftn.org).
 
 Note: **Python 3.6** is required to run the `background_runner.py` file as it is written **asynchronously** using the Python's new famous standard library called `asyncio` and `aiohttp`. At the time of writing this document,
 python3.6 has to be manually compiled from source code. Compiling python from source is not a daunting task, if you installed the dependent libraraies properly.
@@ -62,7 +62,7 @@ Instead of running the `background_runner.py` manually, the program can be sched
 
 Contributors
 ====
-1. swecha
+1. Prasanna Venkadesh (FSFTN)
 
 
 License

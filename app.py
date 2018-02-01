@@ -64,7 +64,7 @@ def handle_register():
         else:
             message = "OSM Display Name and Email are required."
 
-        return render_template('success.php', message = message)
+        return render_template('success.html', message = message)
 
 
 @app.route("/leaderboard", methods=["GET"])

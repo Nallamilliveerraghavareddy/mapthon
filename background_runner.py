@@ -1,6 +1,7 @@
 #!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 #
+# Copyright 2017 Prasanna Venkadesh
 #
 # This file is part of osm-leaderboard
 #
@@ -22,7 +23,7 @@ import asyncio
 import socket
 import sqlite3
 import xml.etree.ElementTree as eTree
-import datetime
+
 from aiohttp import ClientSession, TCPConnector
 
 
@@ -38,13 +39,12 @@ def parse_osmChange_xml(xml_data):
     if len(root) != 0:
         return len(root)
 
-    
+
 async def fetch_osmChange(changeset_id, session):
     """
     Asynchronously fetch xml data for a given changeset id
 
     :param str changeset_id: the id to fetch xml for
-
     :param object session: aiohttp client session
 
     :return: xml response
@@ -109,7 +109,6 @@ async def parse_changeset_xml(xml_data, session, cursor):
 
 
 async def fetch_changeset(user_name, last_time, session):
-    print(last_time)
     """
     Asynchronously fetch changesets for a user for a given date
 
@@ -120,25 +119,13 @@ async def fetch_changeset(user_name, last_time, session):
     :return: changeset xml response
     :rtype: str
     """
-    url = BASE_URL.format(user_name,last_time)
+    url = BASE_URL.format(user_name, last_time)
     print(url)
     async with session.get(url) as response:
-        print(response.text)
         return await response.read()
 
-def updatedb_dates():
-    date = datetime.datetime.now().date()
-    db_connection = sqlite3.connect('data.sqlite3')
-    db_cursor = db_connection.cursor()
-    db_cursor.execute("select display_name from leaderboard;")
-    row_set = db_cursor.fetchall()
-    for each_row in row_set:
-        db_cursor.execute('''UPDATE leaderboard SET last_update = ? WHERE display_name = ? ''',(date, each_row[0]))
-    db_connection.commit()
-    db_connection.close()
-    
+
 async def main(loop):
-    updatedb_dates()
     db_connection = sqlite3.connect('data.sqlite3')
     db_cursor = db_connection.cursor()
 
@@ -159,7 +146,7 @@ async def main(loop):
     connector.close()
 
 if __name__ == "__main__":
-    BASE_URL = "http://api.openstreetmap.org/api/0.6/changesets?display_name={}&time={}"
+    BASE_URL = "http://api.openstreetmap.org/api/0.6/changesets?display_name={}"
     OSMCHANGE_URL = "http://api.openstreetmap.org/api/0.6/changeset/{}/download"
 
     loop = asyncio.get_event_loop()
