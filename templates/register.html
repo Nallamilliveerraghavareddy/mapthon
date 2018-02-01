@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <title>OSM-Swecha Registration</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/css/skeleton.css">
+    </head>
+    <body>
+        <div class="container" style="margin-top: 10px">
+            <div>
+                <center>
+                    <img src="static/images/location.gif" width="150px" height="110px"><br/>
+                    
+
+                     <h4><a href="https://swecha.org" target="_blank">Swecha</a> Mapathon</h4>
+
+                    <div id="step1" style="display: block;">
+                        <p>Step <strong>1</strong> - 2</p>
+                        <!--<form> -->
+                           <label for="osmDisplayName">Your OpenStreetMap Display Name</label>
+                           <p><small>(If you don't have one, create an account in
+                           <a target="_blank" href="https://www.openstreetmap.org/user/new">OSM</a> 
+                           and submit your Display Name here.)</small></p>
+
+                           <label id="error" style="color: red"></label>
+                           <input name="osmDisplayName" id="osmDisplayName"
+                           type="username" placeholder="username" style="text-align:center"><br/>
+
+                           <input class="button-primary" value="Next"
+                            type="button" id="next" onClick="step2()">
+                           <!-- </form> -->
+                    </div>
+
+                    <div id="step2" style="display: none;">
+                        <p>Step 1 - <strong>2</strong></p>
+
+                        <form method="POST" action=".">
+                            <input type="hidden" id="username" name="username" value="" required>
+                            <input type="hidden" id="userid" name="userid" value="" required>
+                            <input type="email" placeholder="Your Email Address"
+                                                name="email" id="email" required> <br/>
+                            <input type="submit" class="button-primary"
+                            value="Register">
+                        </form>
+<form method="POST" action="details.php" >
+<input type="text" name="name" placeholder="Enter your name" />
+<input type="email" name="email" placeholder="Enter your email" />
+<input type="text" name="college" placeholder="Enter youe college" />
+<input type="submit" />
+
+
+
+
+</form>
+                    </div> 
+                    <p><small><a href="/leaderboard">View Leaderboard</a></small></p>
+                </center>
+            </div>
+        </div>
+        <script type="text/javascript" src="static/js/custom.js"></script>
+    </body>
+</html>

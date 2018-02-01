@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>OSM-Swecha  Leaderboard</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="static/css/skeleton.css">
+    </head>
+    <body>
+        <div class="container">
+        <h4 style="text-align: center">Mapping Leaderboard</h4> 
+        <p style="text-align: center">
+            <a href="/">Register Here</a> to join.<br/><br/>
+            Watch this <strong>Leaderboard</strong> for your
+            contributions. The leaderboard will be <strong>updated</strong>
+            daily at <strong>10:00AM, 2:00PM, 6:00PM, 10:00PM</strong>
+        </p>
+        <center>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Contributions</th>
+                    <th>Last Update</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in result_set %}
+                <tr>
+                    <td>{{ user[0] }}</td>
+                    <td>{{ user[1] }}</td>
+                    <td>{{ user[2] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </center>
+        </div>
+    </body>
+</html>

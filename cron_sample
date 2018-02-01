@@ -1,0 +1,2 @@
+# run background_process.py eveyr two hours once.
+* */2 * * * cd absolute-path-to-osm-leaderboard/ && python3.6 absolute-path-to-osm-leaderboard/background_runner.py
