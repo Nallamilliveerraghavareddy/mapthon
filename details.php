@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","newuser","password","osm");
+$con=mysqli_connect("localhost","dbusername","dbpassword","Databasename");
 // Check connection
 if (mysqli_connect_errno())
   {
